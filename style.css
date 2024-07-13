@@ -1,0 +1,672 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.7;
+  color: gray;
+  background: url(assets/body-bg.png);
+}
+
+#page {
+  position: relative;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.container-main {
+  width: 1060px;
+  margin: 0 auto;
+  margin-bottom: 1em;
+  background: #fff;
+}
+
+.aside {
+  margin-top: -20px;
+}
+
+@media screen and (max-width: 768px) {
+  .container-main {
+    width: 100%;
+  }
+
+  .aside {
+    margin-top: -35px;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+.arrow-icon {
+  font-size: 1.5rem;
+}
+
+/* nav */
+.nav {
+  margin: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: inherit;
+  z-index: 1000;
+}
+
+.nav ul li.active > a {
+  color: #000;
+  position: relative;
+}
+
+@media screen and (max-width: 768px) {
+  .nav .top-menu {
+    padding: 10px;
+  }
+}
+
+.nav #nav-logo {
+  font-size: 45px;
+  margin: 0;
+  padding: 35px 0;
+  font-family: "Libre Baskerville", serif;
+  display: block;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+  background: inherit;
+}
+
+@media screen and (max-width: 768px) {
+  .nav #nav-logo {
+    border-bottom: none;
+    padding: 0.1em 0;
+  }
+}
+
+.nav #nav-logo a {
+  color: #658361;
+}
+
+.nav a {
+  padding: 5px 10px;
+  color: #000;
+}
+
+@media screen and (max-width: 768px) {
+  .nav .nav-menu {
+    display: none;
+  }
+}
+
+.nav ul li > a {
+  color: rgba(0, 0, 0, 0.8);
+  position: relative;
+  font-size: 14px;
+  padding: 30px 20px;
+  transition: 0.5s;
+}
+
+.nav ul li.active > a {
+  color: #000;
+  position: relative;
+}
+
+.nav ul li a.active::after,
+.nav ul li a:hover::after {
+  position: absolute;
+  top: 6px;
+  left: 0;
+  right: 0;
+  content: "";
+  width: 50%;
+  height: 2px;
+  background: #658361;
+  margin: 0 auto;
+  opacity: 1;
+}
+
+.nav ul li a.donate {
+  color: #658361;
+}
+
+.nav ul {
+  padding: 20px 0;
+  margin: 0;
+}
+
+.nav ul li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: inline;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.nav-toggle {
+  display: none;
+  position: fixed;
+  right: 0px;
+  top: 30px;
+  margin: 0 auto;
+  width: 44px;
+  z-index: 2001;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+/* mobile-nav */
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 100%;
+  background: #000;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+  z-index: 2000;
+  transition: transform 0.3s ease-in-out;
+  padding: 75px 40px 40px 40px;
+  transform: translateX(100%);
+}
+
+.mobile-nav ul {
+  padding: 20px 0;
+}
+
+.mobile-nav.open {
+  display: block;
+  transform: translateX(0);
+}
+
+.mobile-nav ul li {
+  list-style: none;
+  margin-bottom: 5px;
+}
+
+.mobile-nav ul li a {
+  text-decoration: none;
+  color: #ffffffbe;
+  font-size: 18px;
+}
+
+.mobile-nav ul li a.donate {
+  color: #658361;
+}
+
+#click:checked ~ .mobile-nav {
+  display: block;
+  transform: translateX(0);
+}
+
+@media screen and (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+    color: #000;
+  }
+
+  #click:checked ~ .menu-button i:before {
+    content: "\f00d";
+    color: #ffffffbe;
+  }
+}
+
+/* footer */
+
+#footer {
+  margin-top: 20px;
+  background: #586e72;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 5em 3em;
+  display: block;
+  box-sizing: border-box;
+  font-family: "Libre Baskerville", serif;
+}
+
+#footer .contacts {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  #footer .contacts {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+#footer a {
+  color: white;
+
+  font: 30px;
+  font-weight: solid;
+}
+
+.contacts .footer-social-icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+
+@media screen and (max-width: 768px) {
+  .footer-social-icons {
+    flex-direction: column;
+  }
+}
+
+#footer h2,
+#footer h3 {
+  color: white !important;
+}
+#footer h3 {
+  font-size: 18px;
+  line-height: auto;
+}
+#footer h2 {
+  font-style: 28px;
+}
+#footer .copyright {
+  display: block;
+  margin-top: 3em;
+}
+#footer .copyright .block {
+  display: block;
+}
+
+/* main-section */
+
+#slider-section {
+  position: relative;
+  height: 500px;
+  width: 100%;
+  margin-top: 250px;
+}
+
+#slider-section img {
+  height: 500px;
+  margin-bottom: 0;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  width: inherit;
+  object-fit: cover;
+}
+
+.container-main #slider-section .overlay-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  box-sizing: border-box;
+  color: #ffffff;
+  z-index: 1;
+}
+
+.overlay-content .overlay-text-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.overlay-content h1 {
+  max-width: 390px;
+  margin-bottom: 20px;
+  font-size: 36px;
+  line-height: 1.3;
+  font-weight: 300;
+  font-family: "Libre Baskerville", serif;
+}
+
+.overlay-content h2 {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 30px;
+  font-family: "Libre Baskerville", serif;
+}
+
+.overlay-content h2 a {
+  color: rgba(101, 131, 97, 0.8);
+  border-bottom: 1px solid rgba(101, 131, 97, 0.7);
+}
+
+.overlay-content p {
+  margin-bottom: 20px;
+}
+
+.slider-buttons {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 7px;
+}
+
+@media screen and (max-width: 768px) {
+  .slider-buttons {
+    flex-direction: column;
+    max-width: 90%;
+    gap: 4px;
+  }
+
+  #slider-section {
+    margin-top: 160px;
+  }
+}
+
+.overlay-content a.btn {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #fff;
+  padding: 20px 30px;
+  border: none;
+  border-radius: 0px;
+}
+
+.overlay-content a.btn.learn-button {
+  background: #fff;
+  color: #000;
+}
+
+.overlay-content a.btn.demo-button {
+  background: #658361;
+  color: #fff;
+}
+
+.overlay-content .fa-arrow-right {
+  font-size: 14px;
+  color: #658361;
+}
+
+@media screen and (max-width: 768px) {
+  .overlay-content a.btn {
+    width: 100%;
+  }
+}
+
+#introduction-section {
+  padding: 3em 3em;
+}
+#introduction-section h2 {
+  font-style: italic;
+  font-family: "Libre Baskerville", serif;
+  color: #000;
+  margin: 0 0 20px 0;
+  font-weight: normal;
+}
+
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#fun-facts-section,
+#sermons-section,
+#bible-verse-section,
+#events-section {
+  padding: 5em 3em;
+}
+
+#fun-facts-section .counter {
+  font-size: 40px;
+  display: block;
+  color: black;
+  width: 100%;
+  font-weight: 400;
+  margin-bottom: 0.3em;
+  font-family: "Libre Baskerville", serif;
+}
+#fun-facts-section .counter-label {
+  font-size: 14px;
+  margin-bottom: 2em;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: gray;
+}
+
+.fun-facts-inner-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.fun-facts-inner-content p {
+  max-width: 425px;
+}
+
+@media screen and (max-width: 768px) {
+  #fun-facts-section {
+    padding: 42px 14px;
+  }
+
+  .fun-facts-inner-content {
+    flex-direction: column;
+  }
+}
+
+#services-section,
+#news-section {
+  padding: 5em 3em;
+  background: #fafafa;
+}
+
+#services-section .services-heading,
+#sermons-section .sermon-heading,
+#news-section .news-heading,
+#events-section .events-heading {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 5em;
+}
+
+#services-section .services-heading h2,
+#sermons-section .sermon-heading h2,
+#news-section .news-heading h2,
+#events-section .events-heading h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  line-height: auto;
+  font-family: "Libre Baskerville", serif;
+  color: #000;
+}
+
+#services-section .services-heading p,
+#sermons-section .sermon-heading p,
+#news-section .news-heading p,
+#events-section .events-heading p {
+  max-width: 500px;
+}
+
+.services,
+.sermon-entry,
+.news,
+.events {
+  position: relative;
+}
+
+.services h3,
+.news h3,
+.events h3 {
+  font-size: 18px;
+}
+
+.events h3 {
+  font-size: 20px;
+}
+
+h3 {
+  margin: 0 0 20px 0;
+}
+
+.services h3 a,
+.news h3 a,
+.events h3 a {
+  color: #000;
+  font-family: "Libre Baskerville", serif;
+  font-size: 18px;
+}
+
+.services .img-holder,
+.news .img-holder,
+.sermon-entry .img-holder {
+  width: 100%;
+  float: left;
+  margin-bottom: 30px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+.services .img-holder img,
+.news .img-holder img,
+.sermon-entry .img-holder img {
+  max-width: 100%;
+  z-index: -1;
+  position: relative;
+  object-fit: cover;
+}
+
+.description a {
+  color: #658361;
+}
+
+.services-content,
+.sermon-content,
+.events-content,
+.news-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+  padding-left: 28px;
+  padding-right: 28px;
+}
+
+.news-content {
+  padding-left: 45px;
+  padding-right: 45px;
+}
+
+.news,
+.events {
+  margin-bottom: 40px;
+}
+
+.news .description .date {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.events .description .date {
+  display: block;
+  margin-bottom: 10px;
+  font-family: "Libre Baskerville", serif;
+  font-style: italic;
+}
+
+@media screen and (max-width: 768px) {
+  #services-section,
+  #sermons-section,
+  #bible-verse-section,
+  #news-section,
+  #events-section {
+    padding: 3em 1em;
+  }
+
+  .services-content,
+  .sermon-content,
+  .events-content,
+  .news-content {
+    flex-direction: column;
+    gap: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .sermon-entry,
+  .services .description {
+    margin-bottom: 40px;
+  }
+}
+
+.sermon-entry h3 {
+  color: #000;
+  font-family: "Libre Baskerville", serif;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+#bible-verse-section {
+  background: #658361;
+  position: relative;
+}
+
+.bible-verse {
+  text-align: center;
+  position: relative;
+  color: #fff;
+}
+
+.bible-verse blockquote {
+  border: none;
+  margin: 30px auto;
+  width: 60%;
+  position: relative;
+  padding: 0;
+  font-size: 20px;
+  font-family: "Libre Baskerville", serif;
+  font-style: italic;
+}
+
+@media screen and (max-width: 768px) {
+  .bible-verse blockquote {
+    width: 85%;
+  }
+}
+
+#sermons-section,
+#news-section,
+#events-section,
+#services-section,
+#footer {
+  scroll-margin-top: 230px;
+}
+
+@media screen and (max-width: 768px) {
+  #sermons-section,
+  #news-section,
+  #events-section,
+  #services-section,
+  #footer {
+    scroll-margin-top: 120px;
+  }
+}
